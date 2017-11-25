@@ -1,0 +1,199 @@
+// @import url(../info/retina.less);
+@base: 640rem;
+@fontBase: 640 / 750rem;
+@color: #bf974d;
+.box-shadow(@h,@v,@blur,@spread,@color){
+  -webkit-box-shadow:  @h @v @blur @spread @color;
+  -moz-box-shadow:  @h @v @blur @spread @color;
+  box-shadow:  @h @v @blur @spread @color;
+}
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0px;
+    width: 100%
+}
+.col {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    padding: 0px;
+    width: 100%
+}
+.popup-tip
+{
+    position: fixed;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+
+    display: inline-block;
+    /*background: rgba(0,0,0,.2);*/
+
+    width: 100%;
+
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+    text-align: center;
+    .title
+    {
+        display: inline-block;
+
+        padding: 10px;
+
+        color: #fff;
+        background: rgba(0,0,0,.8);
+    }
+    &.top
+    {
+        top: 25%;
+    }
+    &.bottom
+    {
+        top: 75%;
+    }
+}
+
+
+.popup-box
+{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,.6);
+    .box
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 80%;
+        // width: 610 * @fontBase / @base;
+
+        -webkit-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+
+        border-radius: 5px;
+        background: #fff;
+
+        .box-shadow(0,0,10px,0,#333);
+        .close-icon {
+            width: 20px;
+            height: 30px;
+            text-align: right;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #ccc;
+            &::before, &::after {
+              content: "";
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              width: 2px;
+              height: 14px;
+              -webkit-transform: translate(-50%, -50%) rotate(45deg);
+              -ms-transform: translate(-50%, -50%) rotate(45deg);
+              transform: translate(-50%, -50%) rotate(45deg);
+              background-color: currentColor;
+            }
+
+            &::after {
+              -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+              -ms-transform: translate(-50%, -50%) rotate(-45deg);
+              transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+        .content
+        {
+            padding: 10px;
+
+            text-align: center;
+            .title
+            {
+                font-size: 16px;
+
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 16px;
+                color: #000;
+                // border-bottom: 2px solid #e5e5e5;
+                h2,
+                p
+                {
+                    font-size: 14px;
+
+                    margin: 0;
+                    margin-bottom: 10px;
+                    padding: 0;
+                }
+            }
+            .msg
+            {
+                font-size: 12px;
+                line-height: 20px;
+
+                width: 100%;
+                padding: 10px 0;
+
+                color: #666;
+            }
+        }
+        .btn
+        {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 40px;
+
+            width: 100%;
+            height: 40px;
+
+            text-align: center;
+
+
+            // border-top: 1px solid #E1E1E1;
+
+            .popup-btn
+            {
+                &:active
+                {
+                    background-color: #eee;
+                }
+                &:only-child {
+                    background-color: #CCA152;
+                    color: #fff;
+                }
+            }
+            a
+            {
+                color: @color;
+                // border-right: 1px solid #E1E1E1;
+            }
+
+        }
+        .btn a:last-child
+        {
+            color: @color;
+            border-right: 0;
+        }
+        .close-icon + .btn  {
+            width: 550 * @fontBase / @base;
+            margin-left: 30 * @fontBase / @base;
+            margin-right: 30 * @fontBase / @base;
+            margin-bottom: 40 * @fontBase / @base;
+        }
+    }
+}

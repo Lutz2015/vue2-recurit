@@ -1,0 +1,159 @@
+.border-tp(@color: #e1e1e1) {
+    position: relative;
+    &:before {
+        content: " ";
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 0 0;
+        background: @color;
+        -webkit-transform-origin: 0 0;
+    }
+}
+.border-rt(@color: #e1e1e1) {
+    position: relative;
+    &:after {
+        content: "";
+        width: 1px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transform-origin: 100% 0;
+        background: @color;
+        -webkit-transform-origin: 100% 0;
+    }
+}
+.border-lt(@color: #e1e1e1) {
+    position: relative;
+    &:before {
+        content: "";
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: left center;
+        -webkit-transform-origin: left center;
+        background: @color;
+    }
+}
+.border-bt(@color: #e1e1e1) {
+    position: relative;
+    &:after {
+        content: " ";
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: @color;
+        transform-origin: 0 100%;
+        -webkit-transform-origin: 0 100%;
+    }
+}
+.border-1px(@color: #e1e1e1, @radius: 3px) {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid @color;
+        border-radius: @radius;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+}
+.border-1px-all {
+    .border-1px(@color: #e1e1e1, @radius: 6px);
+}
+.border-1px-all-color(@color: #e1e1e1, @radius: 6px) {
+    .border-1px(@color, @radius);
+}
+.border-1px-c-r6 {
+    .border-1px(@color: #ccc, @radius: 6px);
+}
+.border-tp-e1 {
+    .border-tp(@color: #e1e1e1)
+}
+.border-bt-e1 {
+    .border-bt(@color: #e1e1e1)
+}
+.border-bt-e1-color (@color: #e1e1e1) {
+    .border-bt(@color)
+}
+.border-lt-e1 {
+    .border-lt(@color: #e1e1e1)
+}
+.border-rt-e1 {
+    .border-rt(@color: #e1e1e1)
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+not all {
+    .border-tp-e1:before,
+    .border-bt-e1:after {
+        -webkit-transform: scaleY(.667);
+    }
+    .border-rt-e1:after,
+    .border-lt-e1:before {
+        -webkit-transform: scaleX(.667);
+    }
+    .border-1px-c-r6:after {
+        width: 150%;
+        height: 150%;
+        -webkit-transform: scale(.667);
+    }
+    .border-1px-all:after {
+        width: 150%;
+        height: 150%;
+        -webkit-transform: scale(.667);
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+not all {
+    .border-tp-e1:before,
+    .border-bt-e1:after {
+        -webkit-transform: scaleY(.5);
+    }
+    .border-rt-e1:after,
+    .border-lt-e1:before {
+        -webkit-transform: scaleX(.5);
+    }
+    .border-1px-c-r6:after {
+        width: 200%;
+        height: 200%;
+        -webkit-transform: scale(.5);
+    }
+    .border-1px-all:after {
+        width: 200%;
+        height: 200%;
+        -webkit-transform: scale(.5);
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3),
+not all {
+    .border-tp-e1:before,
+    .border-bt-e1:after {
+        -webkit-transform: scaleY(.3333);
+    }
+    .border-rt-e1:after,
+    .border-lt-e1:before {
+        -webkit-transform: scaleX(.3333);
+    }
+    .border-1px-c-r6:after {
+        width: 300%;
+        height: 300%;
+        -webkit-transform: scale(.3333);
+    }
+    .border-1px-all:after {
+        width: 300%;
+        height: 300%;
+        -webkit-transform: scale(.3333);
+    }
+}
+
+
+
